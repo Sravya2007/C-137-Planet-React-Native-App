@@ -1,31 +1,26 @@
 import React from 'react';
-import { StyleSheet, Text, View } from 'react-native';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './screens/Home';
-import DetailScreen from './screens/Detail';
+import DetailsScreen from './screens/Detail';
 
 export default function App() {
-  return (
-    <AppContainer/>
-  );
+  return <AppContainer/>;
 }
 
 const AppStackNavigator = createStackNavigator({
   Home : {
     screen: HomeScreen,
     navigatonOptions: {
-      
+      headerShown: false
     }
   },
-
-})
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
+  Details : {
+    screen: DetailsScreen
+  }
+},
+{
+  initialRouteName: "Home"
 });
+
+const AppContainer = createAppContainer(AppStackNavigator)
